@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="c68b41a2058c27402446e9462e204024530e8995">
+        <dex dex="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_07d514243a8368963e138f89e91a5da4ccd9fb69/classes.dex" />
+    </item>
+    <item
+        jar="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.1.1_5668a455ea47dc6763bdbbd73f31344fd210acb4/classes.dex" />
+    </item>
+    <item
+        jar="/Users/wilsonyan/android-sdks/extras/android/m2repository/com/android/support/support-annotations/24.1.1/support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.1.1_297d158e26c7376cfd36dfda0322651793e0d15c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="7da9cf70d3a3c5c8bb87a1cb2b256be21aeaf53e">
+        <dex dex="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_114e1f6e5ce54c2b62de3e9038d5838ebb71ae45/classes.dex" />
+    </item>
+    <item
+        jar="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.1.1_87796eb3262eca3b4b759ba1a1c3892c6fc75639/classes.dex" />
+    </item>
+    <item
+        jar="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.1.1_3fca8bb3712de925dd17558449df90556285a5e0/classes.dex" />
+    </item>
+    <item
+        jar="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.1.1_9a6c0bfa44fcaf22f748cf662a56907d84713cb7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="/Users/wilsonyan/Documents/Android Applications/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.1.1_cf9cbb5a2d97fcb15fb98d084be7c2d5434d1520/classes.dex" />
+    </item>
+
+</items>
