@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LEDControl"/>
+        <service android:name=".Background"
+            android:exported="false" />
     </application>
 
 </manifest>

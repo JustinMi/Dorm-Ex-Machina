@@ -46,28 +46,24 @@ public class LEDControl extends Activity{
         brightness = (SeekBar) findViewById(R.id.seekBar);
 
         new ConnectBT().execute();
-
         on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turnOnLed();      //method to turn on
             }
         });
-
         off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turnOffLed();   //method to turn off
             }
         });
-
         disconnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 disconnect(); //close connection
             }
         });
-
         brightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -87,6 +83,9 @@ public class LEDControl extends Activity{
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
+
+        Intent intent = new Intent(this, Background.class);
+        startService(intent);
     }
 
     private void msg(String text) {
