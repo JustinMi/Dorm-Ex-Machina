@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
@@ -13,16 +14,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeviceList">
+        <activity android:name=".InitialActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LEDControl"/>
-        <service android:name=".Background"
-            android:exported="false" />
+        <activity android:name=".FirstTimeActivity"/>
+        <activity android:name=".DeviceList"/>
+        <activity android:name=".ConnectedDeviceActivity" />
+        <activity android:name=".ForgotKeysActivity"/>
+        <service android:name=".BluetoothService"/>
+
     </application>
 
 </manifest>

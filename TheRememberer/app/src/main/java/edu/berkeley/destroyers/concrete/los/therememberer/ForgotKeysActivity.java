@@ -8,17 +8,18 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Telephony;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by wilsonyan on 10/7/16.
  */
 public class ForgotKeysActivity extends Activity implements View.OnClickListener{
-    Button textRoommates, callRA;
+    Button textRoommates, callRA, back;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -26,10 +27,12 @@ public class ForgotKeysActivity extends Activity implements View.OnClickListener
         setContentView(R.layout.forgot_keys_layout);
 
         textRoommates = (Button) findViewById(R.id.roommate);
-        callRA = (Button) findViewById(R.id.ra);
+        callRA = (Button) findViewById(R.id.ra1);
+        back = (Button) findViewById(R.id.back);
 
         textRoommates.setOnClickListener(this);
         callRA.setOnClickListener(this);
+        back.setOnClickListener(this);
     }
 
     @Override
@@ -38,9 +41,11 @@ public class ForgotKeysActivity extends Activity implements View.OnClickListener
             case R.id.roommate:
                 textRoommates();
                 break;
-            case R.id.ra:
+            case R.id.ra1:
                 callRA();
                 break;
+            case R.id.back:
+                finish();
             default:
                 break;
         }
@@ -104,14 +109,29 @@ public class ForgotKeysActivity extends Activity implements View.OnClickListener
             }
         }, new IntentFilter(DELIVERED));
 
+        ArrayList<String> phoneNumbers = new ArrayList<String>();
+        String[] keys = {FirstTimeActivity.RM1_KEY,FirstTimeActivity.RM2_KEY,FirstTimeActivity.RM3_KEY};
+        for (int i=0; i<3; i++) {
+            String phoneNumber = getSharedPreferences(Tools.SHARED_PREFS_KEY, Context.MODE_PRIVATE).getString(keys[i], null);
+            if (phoneNumber != null) {
+                phoneNumbers.add(phoneNumber);
+            }
+        }
+
         SmsManager sms = SmsManager.getDefault();
-        sms.sendTextMessage("9253535812", null, "Hello!", sentPI, deliveredPI);
+        for (String phoneNumber : phoneNumbers) {
+            sms.sendTextMessage(phoneNumber, null, "Hello!", sentPI, deliveredPI);
+        }
     }
 
     private void callRA() {
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        String phoneNumber = getPreferences(Context.MODE_PRIVATE).getString(FirstTimeActivity.RA1_KEY, "");
+        if (phoneNumber.equalsIgnoreCase("")) {
+            return;
+        }
 
-        intent.setData(Uri.parse("tel:9253535812" ));
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + phoneNumber ));
         if(Tools.checkIfPermissionGranted(Tools.CALL_PERMISSION, this)) {
             startActivity(intent);
         }

@@ -15,7 +15,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Call RA"
-        android:id="@+id/ra"
+        android:id="@+id/ra1"
         android:layout_below="@+id/roommate"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/back"
+        android:layout_below="@+id/ra1"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

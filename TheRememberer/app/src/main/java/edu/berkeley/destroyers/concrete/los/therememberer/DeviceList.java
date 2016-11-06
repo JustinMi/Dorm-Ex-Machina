@@ -2,7 +2,9 @@ package edu.berkeley.destroyers.concrete.los.therememberer;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,9 +31,13 @@ public class DeviceList extends AppCompatActivity {
         public void onItemClick(AdapterView<?> av, View v, int a2, long a3) {
             String info = ((TextView) v).getText().toString();
             String address = info.substring(info.length() - 17);
-            Intent i = new Intent(DeviceList.this, LEDControl.class);
+            Intent i = new Intent(DeviceList.this, ConnectedDeviceActivity.class);
             i.putExtra(EXTRA_ADDRESS, address); //this will be received at ledControl (class) Activity
             startActivity(i);
+
+            SharedPreferences.Editor editor = getSharedPreferences(Tools.SHARED_PREFS_KEY, Context.MODE_PRIVATE).edit();
+            editor.putString(Tools.PAIRED_DEVICE_KEY, address);
+            editor.commit();
         }
     };
 
@@ -43,8 +49,21 @@ public class DeviceList extends AppCompatActivity {
         connect = (Button) findViewById(R.id.connect);
         deviceList = (ListView) findViewById(R.id.pairedDevices);
 
+        String address = getSharedPreferences(Tools.SHARED_PREFS_KEY, Context.MODE_PRIVATE).getString(Tools.PAIRED_DEVICE_KEY, null);
+        if (address != null) {
+            Intent i = new Intent(DeviceList.this, ConnectedDeviceActivity.class);
+            i.putExtra(EXTRA_ADDRESS, address); //this will be received at ledControl (class) Activity
+            startActivity(i);
+        }
+
         setupBluetooth();
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setupBluetooth();
     }
 
     private void setupBluetooth() {
