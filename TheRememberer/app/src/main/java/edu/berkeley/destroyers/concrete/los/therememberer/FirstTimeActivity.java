@@ -10,19 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.IOException;
+
 /**
  * Created by wilsonyan on 11/6/16.
  */
 public class FirstTimeActivity extends Activity implements View.OnClickListener{
-    public static final String TAG = "FirstTimeActivity";
-
-    public static final String RM1_KEY = "rm1";
-    public static final String RM2_KEY = "rm2";
-    public static final String RM3_KEY = "rm3";
-    public static final String RA1_KEY = "ra1";
-
     private EditText rm1, rm2, rm3, ra1;
-    Button next;
+    private Button next;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -54,28 +49,22 @@ public class FirstTimeActivity extends Activity implements View.OnClickListener{
         String rm3Text = rm3.getText().toString();
         String ra1Text = ra1.getText().toString();
 
-        SharedPreferences sharedPrefs = getSharedPreferences(Tools.SHARED_PREFS_KEY, Context.MODE_PRIVATE);
+        SharedPreferences sharedPrefs = getSharedPreferences(Keys.SHARED_PREFS_KEY, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPrefs.edit();
 
-        int counter = 0;
         if (isPhoneNumber(rm1Text)) {
-            editor.putString(RM1_KEY, rm1Text);
-            counter++;
+            editor.putString(Keys.RM1_KEY, rm1Text);
         }
         if (isPhoneNumber(rm2Text)) {
-            editor.putString(RM2_KEY, rm2Text);
-            counter++;
+            editor.putString(Keys.RM2_KEY, rm2Text);
         }
         if (isPhoneNumber(rm3Text)) {
-            editor.putString(RM3_KEY, rm3Text);
-            counter++;
+            editor.putString(Keys.RM3_KEY, rm3Text);
         }
         if (isPhoneNumber(ra1Text)) {
-            editor.putString(RA1_KEY, ra1Text);
-            counter++;
+            editor.putString(Keys.RA1_KEY, ra1Text);
         }
-        editor.commit();
-        Log.d(TAG, ""+counter);
+        editor.apply();
     }
 
     private boolean isPhoneNumber(String phoneNumber) {
@@ -85,7 +74,7 @@ public class FirstTimeActivity extends Activity implements View.OnClickListener{
         for (int i=0; i<phoneNumber.length(); i++) {
             try {
                 Integer.parseInt(Character.toString(phoneNumber.charAt(i)));
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 return false;
             }
         }

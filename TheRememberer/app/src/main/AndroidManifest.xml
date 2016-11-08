@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -25,6 +26,7 @@
         <activity android:name=".DeviceList"/>
         <activity android:name=".ConnectedDeviceActivity" />
         <activity android:name=".ForgotKeysActivity"/>
+        <activity android:name=".Settings"/>
         <service android:name=".BluetoothService"/>
 
     </application>

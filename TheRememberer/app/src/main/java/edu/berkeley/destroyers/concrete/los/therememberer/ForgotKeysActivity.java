@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  * Created by wilsonyan on 10/7/16.
  */
 public class ForgotKeysActivity extends Activity implements View.OnClickListener{
-    Button textRoommates, callRA, back;
+    Button textRoommates, callRA;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -28,11 +29,9 @@ public class ForgotKeysActivity extends Activity implements View.OnClickListener
 
         textRoommates = (Button) findViewById(R.id.roommate);
         callRA = (Button) findViewById(R.id.ra1);
-        back = (Button) findViewById(R.id.back);
 
         textRoommates.setOnClickListener(this);
         callRA.setOnClickListener(this);
-        back.setOnClickListener(this);
     }
 
     @Override
@@ -44,8 +43,6 @@ public class ForgotKeysActivity extends Activity implements View.OnClickListener
             case R.id.ra1:
                 callRA();
                 break;
-            case R.id.back:
-                finish();
             default:
                 break;
         }
@@ -109,10 +106,10 @@ public class ForgotKeysActivity extends Activity implements View.OnClickListener
             }
         }, new IntentFilter(DELIVERED));
 
-        ArrayList<String> phoneNumbers = new ArrayList<String>();
-        String[] keys = {FirstTimeActivity.RM1_KEY,FirstTimeActivity.RM2_KEY,FirstTimeActivity.RM3_KEY};
+        ArrayList<String> phoneNumbers = new ArrayList<>();
+        String[] keys = {Keys.RM1_KEY,Keys.RM2_KEY,Keys.RM3_KEY};
         for (int i=0; i<3; i++) {
-            String phoneNumber = getSharedPreferences(Tools.SHARED_PREFS_KEY, Context.MODE_PRIVATE).getString(keys[i], null);
+            String phoneNumber = getSharedPreferences(Keys.SHARED_PREFS_KEY, Context.MODE_PRIVATE).getString(keys[i], null);
             if (phoneNumber != null) {
                 phoneNumbers.add(phoneNumber);
             }
@@ -120,21 +117,26 @@ public class ForgotKeysActivity extends Activity implements View.OnClickListener
 
         SmsManager sms = SmsManager.getDefault();
         for (String phoneNumber : phoneNumbers) {
-            sms.sendTextMessage(phoneNumber, null, "Hello!", sentPI, deliveredPI);
+            sms.sendTextMessage(phoneNumber, null, "I forgot my keys! Can I get some help?", sentPI, deliveredPI);
         }
     }
 
     private void callRA() {
-        String phoneNumber = getPreferences(Context.MODE_PRIVATE).getString(FirstTimeActivity.RA1_KEY, "");
-        if (phoneNumber.equalsIgnoreCase("")) {
-            return;
-        }
+        String phoneNumber = getSharedPreferences(Keys.SHARED_PREFS_KEY, Context.MODE_PRIVATE).getString(Keys.RA1_KEY, "");
+        if (phoneNumber.equalsIgnoreCase("")) return;
 
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + phoneNumber ));
-        if(Tools.checkIfPermissionGranted(Tools.CALL_PERMISSION, this)) {
+        if(checkIfPermissionGranted(CALL_PERMISSION, this)) {
             startActivity(intent);
         }
+    }
+
+    public static final String CALL_PERMISSION = "android.permission.CALL_PHONE";
+
+    public static boolean checkIfPermissionGranted(String permission, Context context) {
+        int res = context.checkCallingOrSelfPermission(permission);
+        return (res == PackageManager.PERMISSION_GRANTED);
     }
 
 }
