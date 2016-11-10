@@ -14,7 +14,7 @@ Students hate being locked out at college dorms--it is a time-consuming and inco
 This project aims to be the solution to forgetful roommates by warning them when they are about to get locked out, while also serving as a convenient hub for assistance if they get locked out anyways.
 
 # Project Details
-Uses an Arduino microcontroller with multiple sensors, including a motion sensor, a magnetic door sensor and an RFID chip reader. In addition, the system is linked with a user's phone using a Bluetooth module and an Android app. 
+Uses an Arduino microcontroller with multiple sensors, including a motion sensor, a magnetic door sensor and an RFID chip reader. In addition, the system is linked with a user's phone using a Bluetooth module and an Android app. Casing designed with Solidworks 2016 and 3D printed.
 
 # Operation
 How the system works, in general:
@@ -26,5 +26,7 @@ How the system works, in general:
 3. If the user still forgets their keys, they get a notification on their phone. They then can use the Android app as a hub to quickly contact their roommates, RAs, etc. 
 
 # Areas for Expansion
-- ag
+- Compatablility for multiple roommates, and multiple devices. This system is set up to be able to keep track of any belonging that can be fitted with an RFID chip (i.e. wallets, keys, etc.) 
+- Internet of Things potential: having your keys/wallet linked with your phone provides a form of positive identification that can prevent fraud and warn the user of burglary. 
+
 
