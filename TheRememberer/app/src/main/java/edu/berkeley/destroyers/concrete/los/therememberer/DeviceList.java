@@ -2,7 +2,9 @@ package edu.berkeley.destroyers.concrete.los.therememberer;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,21 +19,24 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class DeviceList extends AppCompatActivity {
-    public static final String EXTRA_ADDRESS = "EXTRA_ADDRESS";
 
-    Button connect;
-    ListView deviceList;
+
+    private Button connect;
+    private ListView deviceList;
 
     private BluetoothAdapter bluetoothAdapter = null;
-    //private Set<BluetoothDevice> pairedDevices;
     private AdapterView.OnItemClickListener deviceListClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> av, View v, int a2, long a3) {
             String info = ((TextView) v).getText().toString();
             String address = info.substring(info.length() - 17);
-            Intent i = new Intent(DeviceList.this, LEDControl.class);
-            i.putExtra(EXTRA_ADDRESS, address); //this will be received at ledControl (class) Activity
+            Intent i = new Intent(DeviceList.this, ConnectedDeviceActivity.class);
+            i.putExtra(Keys.EXTRA_ADDRESS_KEY, address);
             startActivity(i);
+
+            SharedPreferences.Editor editor = getSharedPreferences(Keys.SHARED_PREFS_KEY, Context.MODE_PRIVATE).edit();
+            editor.putString(Keys.PAIRED_DEVICE_KEY, address);
+            editor.commit();
         }
     };
 
@@ -43,8 +48,22 @@ public class DeviceList extends AppCompatActivity {
         connect = (Button) findViewById(R.id.connect);
         deviceList = (ListView) findViewById(R.id.pairedDevices);
 
+        // If already previously connected, just automatically connect
+        String address = getSharedPreferences(Keys.SHARED_PREFS_KEY, Context.MODE_PRIVATE).getString(Keys.PAIRED_DEVICE_KEY, null);
+        if (address != null) {
+            Intent i = new Intent(DeviceList.this, ConnectedDeviceActivity.class);
+            i.putExtra(Keys.EXTRA_ADDRESS_KEY, address);
+            startActivity(i);
+        }
+
         setupBluetooth();
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setupBluetooth();
     }
 
     private void setupBluetooth() {

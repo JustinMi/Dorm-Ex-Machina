@@ -6,49 +6,45 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="On"
-        android:id="@+id/led_on"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Off"
-        android:id="@+id/led_off"
-        android:layout_below="@+id/led_on"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Disconnect"
         android:id="@+id/disconnect"
-        android:layout_below="@+id/led_off"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/bt_status"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Indicator"
-        android:id="@+id/indicator"
-        android:layout_below="@+id/disconnect"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="Connecting..."
+        android:id="@+id/bt_status"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
-    <SeekBar
+    <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
-        android:layout_below="@+id/indicator"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:indeterminate="false"
-        android:max="@integer/abc_config_activityDefaultDur"
-        android:progress="10" />
+        android:id="@+id/progressBar"
+        android:layout_above="@+id/bt_status"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:indeterminate="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkmark"
+        android:src="@drawable/rsz_2rsz_checkmark"
+        android:layout_above="@+id/bt_status"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:id="@+id/settings"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

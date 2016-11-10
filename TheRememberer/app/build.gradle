@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "edu.berkeley.destroyers.concrete.los.therememberer"
-        minSdkVersion 14
+        minSdkVersion 18
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
