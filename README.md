@@ -25,3 +25,6 @@ How the system works, in general:
 
 3. If the user still forgets their keys, they get a notification on their phone. They then can use the Android app as a hub to quickly contact their roommates, RAs, etc. 
 
+# Areas for Expansion
+- ag
+
