@@ -33,14 +33,14 @@
         jar="/Users/wilsonyan/Documents/Programming/Dorm Ex Machina/TheRememberer/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="4086e7150eea0c618cd7032ffe1978999de85f5e">
+        sha1="0581bf64169dd244ca231d54b4175a117cccb97f">
         <dex dex="/Users/wilsonyan/Documents/Programming/Dorm Ex Machina/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_444018a9b7ebb6dc7c782fab72edf4e900ea0d53/classes.dex" />
     </item>
     <item
         jar="/Users/wilsonyan/Documents/Programming/Dorm Ex Machina/TheRememberer/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.0"
-        sha1="32eaa0f4906a65c85b991c2a5586ffe81acda752">
+        sha1="80e3bbb8d27263feec5dae38e9b05e1155d48099">
         <dex dex="/Users/wilsonyan/Documents/Programming/Dorm Ex Machina/TheRememberer/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_8c53037fe051026a8d34453aff220a15391255f1/classes.dex" />
     </item>
     <item
