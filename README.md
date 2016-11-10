@@ -1,6 +1,9 @@
 # Bluebird
 Never get locked out of your room again!
-[Video description:](https://www.youtube.com/watch?v=f8zElbmsQEc)
+
+[Video description!](https://www.youtube.com/watch?v=f8zElbmsQEc)
+
+[More Detailed Presentation](https://docs.google.com/presentation/d/158bJbD4Enr45wMe4BHj2ROosKp-FlLWMp7Sc7yBgapw/edit?usp=sharing)
 
 # Dorm-Ex-Machina
 Won first place at Robotics@Berkeley's 2016 invention competition.
