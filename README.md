@@ -1,5 +1,6 @@
 # Bluebird
 Never get locked out of your room again!
+[Video description:](https://www.youtube.com/watch?v=f8zElbmsQEc)
 
 # Dorm-Ex-Machina
 Won first place at Robotics@Berkeley's 2016 invention competition.
@@ -20,7 +21,4 @@ How the system works, in general:
 2. If the user is about to leave the room without their keys, the system beeps a friendly reminder
 
 3. If the user still forgets their keys, they get a notification on their phone. They then can use the Android app as a hub to quickly contact their roommates, RAs, etc. 
-
-[![ScreenShot](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://www.youtube.com/watch?v=f8zElbmsQEc)
-
 
